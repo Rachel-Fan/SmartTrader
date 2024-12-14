@@ -33,7 +33,7 @@ def predict_multiple_days(model, scaler, recent_data, target_date, data_index, b
     # Predict for the target date and subsequent business days
     for step in range(business_days):
         print(f"Predicting day {step + 1}")
-        prediction = model.predict(current_input)
+        prediction = model.predict(current_input, verbose=0)
 
         # Denormalize the prediction
         denormalized_prediction = scaler.inverse_transform(prediction)

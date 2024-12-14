@@ -23,7 +23,9 @@ document.getElementById("submitDate").addEventListener("click", function () {
             outputDiv.innerHTML = '';
 
             // Display the result from the backend
-            $("#date").text("You have selected the date: " + selectedDate);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateObject = new Date(selectedDate + "T00:00");
+            $("#date").text("You have selected the date: " + dateObject.toLocaleDateString('en-US', options));
         
             // Extract the response data
             const { trading_strategy, next_five_business_days, highest_price, lowest_price, average_price } = response;
@@ -63,15 +65,18 @@ document.getElementById("submitDate").addEventListener("click", function () {
             for (let i = 0; i < maxLength; i++) {
                 tableHTML += `
                     <tr>
-                        <td>${next_five_business_days[i] || ''}</td>
+                        <td>${next_five_business_days[i].replace(" 00:00:00 GMT", "") || ''}</td>
                         <td>${trading_strategy[i] || ''}</td>
                     </tr>
                 `;
             }
             // Close the table
             tableHTML += '</table>';
-            // Set the table as the innerHTML of the output div
+
+            // Set innerHTML of the output div
+            outputDiv.innerHTML += '<h2>Predicted prices for the next five business days (in USD) are:</h2>';
             outputDiv.innerHTML += priceTableHTML;
+            outputDiv.innerHTML += '<h2>Recommended trading strategies:</h2>';
             outputDiv.innerHTML += tableHTML;
         },
         error: function () {
