@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Trader</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="dateform" class="container">
+        <h1>Smart Trader</h1>
+        <label for="datePicker">Select a date:</label>
+        <input type="date" id="datePicker" min="2024-03-01" max="2025-01-01">
+        <button id="submitDate">Submit Date</button>
+        <p id="date"></p>
+
+        <div id="output"></div>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</html>

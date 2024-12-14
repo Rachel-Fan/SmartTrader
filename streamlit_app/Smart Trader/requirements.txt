@@ -4,5 +4,5 @@ matplotlib
 streamlit
 scikit-learn
 tensorflow  # or pytorch
-flask
 yfinance
+flask
