@@ -8,10 +8,10 @@ Phuoc Le: phuoc.le@sjsu.edu 013868400
 
 Rachel Fan: rong.fan@sjsu.edu 016693300
 
-#URL to access the app
+# URL to access the app
 http://44.211.43.86:5000/ 
 
-#Extra Intructions for grading
+# Extra Intructions for grading
 ...
-#Build intructions
+# Build intructions
 ...
